@@ -7,7 +7,7 @@ This repository houses the Virtual Party task, a social interaction task by Dr. 
 2. Testing the Task on Your Device (Without Trigger Codes).
 3. Making Changes to the Task.
 4. Specifying the Correct Parallel Port Address in Builder. 
-5. Output interpretation.
+5. Output Interpretation.
 6. Video of a Trial Run. 
 
 ## 1.  Downloading PsychoPy and Determining Parallel Port Address
