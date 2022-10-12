@@ -8,7 +8,8 @@ This repository houses the Virtual Party task, a social interaction task by Dr. 
 3. Making Changes to the Task.
 4. Specifying the Correct Parallel Port Address in Builder. 
 5. Output Interpretation.
-6. Video of a Trial Run. 
+6. Trigger Code List
+7. Video of a Trial Run. 
 
 ## 1.  Downloading PsychoPy and Determining Parallel Port Address
 
@@ -95,13 +96,27 @@ This repository houses the Virtual Party task, a social interaction task by Dr. 
 		 - Find the Result routine.
 		 - Within this routine, click on the component named result_trigger (will have a suffix denoting round number) > Hardware > Choose the correct parallel port address in the drop-down menu.
  - Once you complete all of these edits, run the task in its entirety to test it. 
+ - Trigger code list:
+ 
 
 ## 5. Output Interpretation
 
  - The task will write data into an excel (.csv) file, a PSYDAT file and also a log file.
  - Only the .csv file is needed for data analysis purposes. The program removes participants' names but retains all other information (votes, poll responses, post-task questionnaires). 
- ## 6. Video of a Trial Run
+ ## 6. Trigger Code List
+ - 1: Participant likes a Co-player
+ - 2: Participant dislikes a Co-player
+ - 15: Type 1 Co-player likes participant
+ - 16: Type 1 Co-player dislikes participant
+ - 25: Type 2 Co-player likes participant
+ - 26: Type 2 Co-player dislikes participant
+ - 35: Type 3 Co-player likes participant
+ - 36: Type 3 Co-player dislikes participant
+ - 45: Type 4 Co-player likes participant
+ - 46: Type 4 Co-player dislikes participant
+ - 50: Participant is invited to party
  
+ ## 7. Video of a Trial Run
  - See an example run of the whole task here: https://tinyurl.com/virtualpartyexample
 	
 			
