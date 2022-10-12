@@ -10,7 +10,7 @@ This repository houses the Virtual Party task, a social interaction task by Dr. 
 5. Output interpretation.
 6. Video of a Trial Run. 
 
-## 1.  Downloading PsychoPy and Determining Parallel Port Address.
+## 1.  Downloading PsychoPy and Determining Parallel Port Address
 
 **Downloading PsychoPy:**
 
