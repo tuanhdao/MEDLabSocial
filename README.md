@@ -1,6 +1,6 @@
-# Virtual Party
+# The Revamped MED Lab Social Interaction Task
 
-This repository houses the Virtual Party task, a social interaction task by Dr. Autumn Kujawa, Helen Zhang, & Anh Dao. 
+This repository houses the VP task, a social interaction task by Dr. Autumn Kujawa, Helen Zhang, & Anh Dao. 
 
 ## Table of Contents
 1. Downloading PsychoPy and Determining Parallel Port Address.
@@ -8,7 +8,9 @@ This repository houses the Virtual Party task, a social interaction task by Dr. 
 3. Making Changes to the Task.
 4. Specifying the Correct Parallel Port Address in Builder. 
 5. Output Interpretation.
-6. Video of a Trial Run. 
+6. Trigger Code List
+7. Video of a Trial Run. 
+8. Summary of Changes from the Original Island Getaway Task 
 
 ## 1.  Downloading PsychoPy and Determining Parallel Port Address
 
@@ -95,13 +97,43 @@ This repository houses the Virtual Party task, a social interaction task by Dr. 
 		 - Find the Result routine.
 		 - Within this routine, click on the component named result_trigger (will have a suffix denoting round number) > Hardware > Choose the correct parallel port address in the drop-down menu.
  - Once you complete all of these edits, run the task in its entirety to test it. 
+ - Trigger code list:
+ 
 
 ## 5. Output Interpretation
 
  - The task will write data into an excel (.csv) file, a PSYDAT file and also a log file.
  - Only the .csv file is needed for data analysis purposes. The program removes participants' names but retains all other information (votes, poll responses, post-task questionnaires). 
- ## 6. Video of a Trial Run
+ ## 6. Trigger Code List
+ - 1: Participant likes a Co-player
+ - 2: Participant dislikes a Co-player
+ - 15: Type 1 Co-player likes participant
+ - 16: Type 1 Co-player dislikes participant
+ - 25: Type 2 Co-player likes participant
+ - 26: Type 2 Co-player dislikes participant
+ - 35: Type 3 Co-player likes participant
+ - 36: Type 3 Co-player dislikes participant
+ - 45: Type 4 Co-player likes participant
+ - 46: Type 4 Co-player dislikes participant
+ - 50: Participant is invited to party
  
- - See an example run of the whole task here: https://tinyurl.com/virtualpartyexample
+ ## 7. Video of a Trial Run
+ - See an example run of the whole task here: https://tinyurl.com/medlabvirtualparty
+ 
+ ## 8. Summary of Changes from the Original Island Getaway Task
+ - More accurate trigger timing (trigger timings tested using BrainVision photosensor). 
+ - Removed binary gender. 
+ - Updated storyline: The task simulates a social media platform with clear "likes" and "dislikes" to assess reactions to social acceptance/rejection.
+ - Updated stimuli: Using blue and red thumb icons instead of red and green, and updated icons for practice co-player profiles. 
+ - Text entry fields are built into the task window which resolves issues with previous pop-up text boxes.
+ - Added more time for co-players to respond/vote to increase believability. 
+ - Added a screen to inform participant that votes are being compiled and their feedback will be shown shortly. 
+ - Co-players and rounds: 
+ 	- All co-player profile information is randomly assigned at each run of the task. 
+ 	- The new version of the task includes 12 co-players who are each assigned to a "type" rather than "mean" or "nice." There are 4 types of co-players with 3 co-players in each category (see above).
+	- There are 5 rounds of voting.
+	- All co-players remain in the game, so there are 60 voting trials. Instead of being kicked out, the co-players are either among the ones who got the most votes or the least votes. Co-player profiles are randomly assigned and then assigned a specific order. Most/least liked co-player's are chosen using a fixed order (i.e., the co-player who appears second in the initial profile viewing will be most liked in round 1, etc.) so that no most liked co-players end up least liked in other rounds and vice-versa. 
+- Added PANAS questions to the post-task questionnaire and items about believability. 
+- Output file includes a .CSV file that can easily be used to analyze behavioral data. 
 	
 			
