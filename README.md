@@ -3,14 +3,14 @@
 This repository houses the VP task, a social interaction task by Dr. Autumn Kujawa, Helen Zhang, & Anh Dao. 
 
 ## Table of Contents
-1. Downloading PsychoPy and Determining Parallel Port Address.
-2. Testing the Task on Your Device (Without Trigger Codes).
-3. Making Changes to the Task.
-4. Specifying the Correct Parallel Port Address in Builder. 
-5. Output Interpretation.
+1. Downloading PsychoPy and Determining Parallel Port Address
+2. Testing the Task on Your Device (Without Trigger Codes)
+3. Making Changes to the Task
+4. Specifying the Correct Parallel Port Address in Builder 
+5. Output Interpretation
 6. Trigger Code List
-7. Video of a Trial Run. 
-8. Summary of Changes from the Original Island Getaway Task.
+7. Video of a Trial Run 
+8. Summary of Changes from the Original Island Getaway Task
 
 ## 1.  Downloading PsychoPy and Determining Parallel Port Address
 
