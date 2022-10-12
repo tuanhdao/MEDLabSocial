@@ -118,7 +118,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
  - 50: Participant is invited to party
  
  ## 7. Video of a Trial Run
- - See an example run of the whole task here: https://tinyurl.com/virtualpartyexample
+ - See an example run of the whole task here: https://tinyurl.com/medlabvirtualparty
  
  ## 8. Summary of Changes from the Original Island Getaway Task
  - More accurate trigger timing (trigger timings tested using BrainVision photosensor). 
