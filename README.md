@@ -1,6 +1,6 @@
 # The Revamped MED Lab Social Interaction Task
 
-This repository houses the VP task, a social interaction task by Dr. Autumn Kujawa, Helen Zhang, & Anh Dao. 
+This repository houses the VP task, a social interaction task by Dr. Autumn Kujawa, Helen Zhang, & Anh Dao. This task builds on the https://github.com/Kodiologist/Survivor task. 
 
 The ZIP file containing the task and the video demonstrating the task are password protected. Please contact medlabvanderbilt@gmail.com for access information.
 
