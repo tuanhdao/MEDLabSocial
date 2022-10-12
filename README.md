@@ -10,6 +10,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 5. Output Interpretation.
 6. Trigger Code List
 7. Video of a Trial Run. 
+8. Summary of Changes from the Original Island Getaway Task 
 
 ## 1.  Downloading PsychoPy and Determining Parallel Port Address
 
@@ -118,5 +119,21 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
  
  ## 7. Video of a Trial Run
  - See an example run of the whole task here: https://tinyurl.com/virtualpartyexample
+ 
+ ## 8. Summary of Changes from the Original Island Getaway Task
+ - More accurate trigger timing (trigger timings tested using BrainVision photosensor). 
+ - Removed binary gender. 
+ - Updated storyline: The task simulates a social media platform with clear "likes" and "dislikes" to assess reactions to social acceptance/rejection.
+ - Updated stimuli: Using blue and red thumb icons instead of red and green, and updated icons for practice co-player profiles. 
+ - Text entry fields are built into the task window which resolves issues with previous pop-up text boxes.
+ - Added more time for co-players to respond/vote to increase believability. 
+ - Added a screen to inform participant that votes are being compiled and their feedback will be shown shortly. 
+ - Co-players and rounds: 
+ 	- All co-player profile information is randomly assigned at each run of the task. 
+ 	- The new version of the task includes 12 co-players who are each assigned to a "type" rather than "mean" or "nice." There are 4 types of co-players with 3 co-players in each category (see above).
+	- There are 5 rounds of voting.
+	- All co-players remain in the game, so there are 60 voting trials. Instead of being kicked out, the co-players are either among the ones who got the most votes or the least votes. Co-player profiles are randomly assigned and then assigned a specific order. Most/least liked co-player's are chosen using a fixed order (i.e., the co-player who appears second in the initial profile viewing will be most liked in round 1, etc.) so that no most liked co-players end up least liked in other rounds and vice-versa. 
+- Added PANAS questions to the post-task questionnaire and items about believability. 
+- Output file includes a .CSV file that can easily be used to analyze behavioral data. 
 	
 			
