@@ -10,7 +10,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 5. Output Interpretation.
 6. Trigger Code List
 7. Video of a Trial Run. 
-8. Summary of Changes from the Original Island Getaway Task 
+8. Summary of Changes from the Original Island Getaway Task.
 
 ## 1.  Downloading PsychoPy and Determining Parallel Port Address
 
