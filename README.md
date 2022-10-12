@@ -1,6 +1,6 @@
-# Virtual Party
+# The Revamped MED Lab Social Interaction Task
 
-This repository houses the Virtual Party task, a social interaction task by Dr. Autumn Kujawa, Helen Zhang, & Anh Dao. 
+This repository houses the VP task, a social interaction task by Dr. Autumn Kujawa, Helen Zhang, & Anh Dao. 
 
 ## Table of Contents
 1. Downloading PsychoPy and Determining Parallel Port Address.
