@@ -102,7 +102,6 @@ This repository houses the Virtual Party task, a social interaction task by Dr. 
  - Only the .csv file is needed for data analysis purposes. The program removes participants' names but retains all other information (votes, poll responses, post-task questionnaires). 
  ## 6. Video of a Trial Run
  
- - See an example run of the whole task here: https://vanderbilt365-my.sharepoint.com/:v:/g/personal/anh_t_dao_vanderbilt_edu/ETTWhoK1qUVGlWwHQx-KhQEBZOSiJMsgxsgveseJA6mBlQ?e=7Pffsg
-
+ - See an example run of the whole task here: https://tinyurl.com/virtualpartyexample
 	
 			
