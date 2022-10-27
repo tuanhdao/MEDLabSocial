@@ -6,13 +6,12 @@ The ZIP file containing the task and the video demonstrating the task are passwo
 
 ## Table of Contents
 1. Downloading PsychoPy and Determining Parallel Port Address
-2. Testing the Task on Your Device (Without Trigger Codes)
-3. Making Changes to the Task
-4. Specifying the Correct Parallel Port Address in Builder 
-5. Output Interpretation
-6. Trigger Code List
-7. Video of a Trial Run 
-8. Summary of Changes from the Original Island Getaway Task
+2. Making Changes to the Task
+3. Specifying the Correct Parallel Port Address in Builder 
+4. Output Interpretation
+5. Trigger Code List
+6. Video of a Trial Run 
+7. Summary of Changes from the Original Island Getaway Task
 
 ## 1.  Downloading PsychoPy and Determining Parallel Port Address
 
