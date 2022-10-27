@@ -21,7 +21,7 @@ The ZIP file containing the task and the video demonstrating the task are passwo
 -   Use a Windows computer!
 -   Download and install PsychoPy 2022.2.4 (choose this file StandalonePsychoPy-2022.2.4-win64.exe):  [https://github.com/psychopy/psychopy/releases?page=1](https://github.com/psychopy/psychopy/releases?page=7)
 
-**Install correct drivers:**
+**REQUIRED: Install correct parallel port drivers:**
 
 -   Download the inpout32.dll driver:  [http://www.highrez.co.uk/downloads/inpout32/](http://www.highrez.co.uk/downloads/inpout32/)  32 by clicking on "Binaries only - x86 & x64 DLLs and libs" under Downloads. (This file is needed to give Windows access to the parallel port installed in the display computer.)
 -   Unzip the folder, and run “InstallDriver” which is found in the Win32 folder by clicking on the driver. When properly installed, you should get a confirmation message saying it’s done! Copy the inpout.dll file found in the Win32 folder to the following locations:
@@ -37,13 +37,7 @@ The ZIP file containing the task and the video demonstrating the task are passwo
 -   Open the parallel port tester, and choose the parallel port you have installed on the display computer (bottom right corner). This should display the correct address to be used in your Psychopy code. (e.g. mine is a PCIe with address: 0x3FF8). This is the same address that shows up in device manager, if you are more familiar with that method of finding the address.
 -   If you launch BrainVision Recorder on the acquisition computer, go to Amplifier > Digital Port Settings, you will have the parallel port installed on the display computer show up. By turning some pins from low to high (pins 2-9) you should see the pins change in the BrainVision recorder too. This confirms that the parallel port is indeed installed correctly and working ‘manually.’
 
-## 2. Testing the Task on Your Device (Without Trigger Codes)
-
- - Download ZIP file and unzip file in the desired category. 
- -  Open PsychoPy Builder, then run "Virtual_Party_triggers_disabled.psyexp" file to test whether the task works on your computer.
- - Note that this version of the task has triggers disabled so you can test it on your own personal computer. 
-
-## 3. Making Changes to the Task
+## 2. Making Changes to the Task
 
  -  Watch tutorials on how to use PsychoPy if needed: https://youtube.com/playlist?list=PL6PJquR5BWXllUt585cRJWcRTly55iXTm
  
@@ -79,7 +73,7 @@ The ZIP file containing the task and the video demonstrating the task are passwo
 				- Type 4: 3 peers - 1 reject votes, 4 accept across task.
 		- Co-player votes are set up so that the participant gets 6 likes and 6 dislikes in each round. It is important to keep this ratio to be congruent with the Doors task and also to make the result of the game more ambiguous. 
 		- You can make edits to the order of the 0s and 1s, but I would always make sure to double-check the ratio of likes/dislikes after making any edits. 
-## 4. Specifying the Correct Parallel Port Address in Builder
+## 3. Specifying the Correct Parallel Port Address in Builder
  - Open PsychoPy Builder and then open the .PSYEXP version of the task which trigger codes enabled (File > Open > your file directory).  
  - In Hardware settings (File > Preferences > Hardware), add the correct parallel port address of your task computer (PsychoPy will likely have a list of existing addresses; you can just add a comma and the correct parallel port address of your task computer). 
  - If the address of your computer is already loaded in the parallel ports cell, you do not have to make any changes, so just click "OK" to close preferences. 
@@ -102,11 +96,11 @@ The ZIP file containing the task and the video demonstrating the task are passwo
  - Trigger code list:
  
 
-## 5. Output Interpretation
+## 4. Output Interpretation
 
  - The task will write data into an excel (.csv) file, a PSYDAT file and also a log file.
  - Only the .csv file is needed for data analysis purposes. The program removes participants' names but retains all other information (votes, poll responses, post-task questionnaires). 
- ## 6. Trigger Code List
+ ## 5. Trigger Code List
  - 1: Participant likes a Co-player
  - 2: Participant dislikes a Co-player
  - 15: Type 1 Co-player likes participant
@@ -119,10 +113,10 @@ The ZIP file containing the task and the video demonstrating the task are passwo
  - 46: Type 4 Co-player dislikes participant
  - 50: Participant is invited to party
  
- ## 7. Video of a Trial Run
+ ## 6. Video of a Trial Run
  - See an example run of the whole task here: https://tinyurl.com/medlabvirtualparty
  
- ## 8. Summary of Changes from the Original Island Getaway Task
+ ## 7. Summary of Changes from the Original Island Getaway Task
  - More accurate trigger timing (trigger timings tested using BrainVision photosensor). 
  - Removed binary gender. 
  - Updated storyline: The task simulates a social media platform with clear "likes" and "dislikes" to assess reactions to social acceptance/rejection.
