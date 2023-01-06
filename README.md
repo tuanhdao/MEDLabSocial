@@ -92,7 +92,6 @@ The ZIP file containing the task and the video demonstrating the task are passwo
 		 - Find the Result routine.
 		 - Within this routine, click on the component named result_trigger (will have a suffix denoting round number) > Hardware > Choose the correct parallel port address in the drop-down menu.
  - Once you complete all of these edits, run the task in its entirety to test it. 
- - Trigger code list:
  
 
 ## 4. Output Interpretation
