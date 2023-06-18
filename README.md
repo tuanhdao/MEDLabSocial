@@ -129,4 +129,6 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 - Added PANAS questions to the post-task questionnaire and items about believability. 
 - Output file includes a .CSV file that can easily be used to analyze behavioral data. 
 	
+## 8. Troubleshooting 
+- Installing 2023.x.x versions of PsychoPy currently throws a fatal error of missing environmenttools. Only use 2022.x.x. versions to avoid this problem. 
 			
