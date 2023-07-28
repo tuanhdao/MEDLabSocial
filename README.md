@@ -98,7 +98,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 
 ## 5. Sending Triggers through a Serial Port
 **Introduction to Serial Ports**
- - Serial ports are a bit more narrow than parallel ports and include 9 pins only. Their names are COM1, COM2, COM3, COM4 etc. Serial ports are now more commonly found on various devices while parallel ports are mostly deprecated. You cannot install a parallel port card into laptops or small computers. Brain Products now offer an add-in accessory named the TriggerBox, which provides a reliable virtual serial port via USB that can be directly addressed from your stimulus presentation software
+ - Serial ports are a bit more narrow than parallel ports and include 9 pins only. Their names are COM1, COM2, COM3, COM4 etc. Serial ports are now more commonly found on various devices while parallel ports are mostly deprecated. You cannot install a parallel port card into laptops or small computers. Brain Products now offer an add-in accessory named the TriggerBox, which provides a reliable virtual serial port via USB that can be directly addressed from your stimulus presentation software.
  - Recommended serial port settings:
  	- Baud rate: Set to 115200. Higher number means faster transmission of data. 115200 will be best.
 	- Parity: Set to None. Parity is a method of detecting errors in transmission. When parity is used with a serial port, an extra data bit is sent with each data character, arranged so that the number of 1 bit in each character, including the parity bit, is always odd or always even.
@@ -106,14 +106,20 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 	- Stop bits: Set to 1. Stop bits sent at the end of every character allow the receiving signal hardware to detect the end of a character and to resynchronize with the character stream. Electronic devices usually use 1 stop bit.
 
 **How to Edit the Task to Send Triggers through the Serial Port**
-- First, you must successfully set up a serial port within your task computer and connect it with your EEG data collection computer/ 
-- After setting the system up successfully, determine the correct serial port address. You can do this by opening the Device Manager (for Windows computers) > Ports (COM & LPT). Note the name of the port (should be COM1, COM2, COM3). You can also find this in Presentation by selecting Settings > Port > Add 
-- For each round, make the following changes:
+- First, you must successfully set up a serial port within your task computer and connect it with your EEG data collection computer/ data collection software.
+- After setting the system up successfully, you should determine the correct serial port address. You can do this by opening the Device Manager (for Windows computers) > Ports (COM & LPT). Note the name of the port (should be COM1, COM2, COM3). You can also find this in Presentation by selecting Settings > Port > Add 
+Output Port > find out the name of the port by clicking on the drop down menu.
+- For each round, make the following changes in each routine:
 	- Player_voting_style routine:
-		- Disable the parallel port component (named ptp_trigger_1, ptp_trigger_2, etc.) by clicking on the component > Testing > click on "Disable Component." You can also delete this component.
-  		- Create a new serial port component (name it ptp_trigger_s1, ptp_trigger_s2, etc. for easy recognition) by selecting "Serial Beta" in Components > I/O.
-    			- In this serial port component, set the start to be condition instead of time, and type in $click_real_1 == STARTED. 
-  		- Move vote_trig code component 
+		- Disable the parallel port component (named ptp_trigger_1, ptp_trigger_2, etc.) by clicking on the component > Testing > click on "Disable Component." You can also delete this component altogether.
+  		- Setting up triggers to be sent when participant votes:
+                  - Create a new serial port component (name it ptp_trigger_s1, ptp_trigger_s2, etc. for easy recognition) by selecting "Serial Beta" in the menu on the left labeled Components and choose the I/O tab. 
+    			- In this serial port component, set the start of the component to be condition instead of time, and type in $click_real_1 == STARTED (including the $).
+                        - Set the duration of the component to be 0.01 s.
+                        - Set the start value to be blank.
+                        - Set the stop value to be $chr(0). The stop value is what the serial port will be reset to after a trigger code is done sending. The serial component in PsychoPy Builder mode automatically converts start and stop values to byted using bytes(), so if you want to set specific numerical values, you must use $chr() or $str.encode () (chr takes numbers and str.encode takes a string).
+  		        - Move vote_trig code component to reside above the new serial component.
+                        - Edit the method to send trigger coded in the vote_trig component by replacing .setData(an integer) with .write(bytes(chr()), 'utf8').
 
 ## 6. Output Interpretation
 
