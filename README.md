@@ -62,7 +62,9 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
  - Once you complete all of these edits, run the task in its entirety to test it. 
 
 ## 4. Editing the Task to Send Triggers through a Serial Port
+
 **Introduction to Serial Ports**
+
 - Helpful resource introducing serial ports: https://learn.sparkfun.com/tutorials/serial-communication/all
 - Serial ports are a bit more narrow than parallel ports and include 9 pins only. Their names are COM1, COM2, COM3, COM4 etc. Serial ports are now more commonly found on various devices while parallel ports are mostly deprecated. You cannot install a parallel port card into laptops or small computers. Brain Products now offer an add-in accessory named the TriggerBox, which provides a reliable virtual serial port via USB that can be directly addressed from your stimulus presentation software.
  - Recommended serial port settings:
@@ -73,16 +75,19 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
  - Methods used to write data to serial ports are different than those used for parallel ports. Use .write rather than.setData. 
 
 **How to Edit the Task to Send Triggers through the Serial Port**
+
 - First, you must successfully set up a serial port within your task computer and connect it with your EEG data collection computer/data collection software.
 - After setting up the system successfully, you should determine the correct serial port address. In Windows, you can do this by opening the Device Manager (for Windows computers) > Ports (COM & LPT). Note the name of the port (should be COM1, COM2, COM3). You can also find this in Presentation by selecting Settings > Port > Add Output Port > Find out the name of the port by clicking on the drop-down menu.
-** For each of the 5 rounds, make the following changes in each routine:**
+  
+**For each of the 5 rounds, make the following changes in each routine:**
+
 - Player_voting_style routine:
 	- Disable the parallel port component (named ptp_trigger_1, ptp_trigger_2, etc.) by clicking on the component > Testing > click on "Disable Component." You can also delete these components altogether.
 	- Setting up triggers to be sent when participant votes:
 	- Create a new serial port component by selecting "Serial Beta" in the menu on the left labeled Components and choose the I/O tab.
  		- Adjust basic serial port settings:
    			- Name: Name the component ptp_trigger_s1, ptp_trigger_s2, etc. for easy recognition. 
-			- Start of serial component: Set the start of the component to be condition instead of time (the trigger is to be sent when the computer registers a correct click) type in $click_real_1 == STARTED (including the $).
+			- Start of serial component: Set the start of the component to be condition instead of time (the trigger is to be sent when the computer registers a correct click) type in "$click_real_1 == STARTED" (including the $).
 			- Duration: Set the duration of the component to be 0.01s.
 			- Start value: Set the start value to blank.
 			- Stop value: Set the stop value to be $chr(0). The stop value is what the serial port will be reset to after a trigger code is done sending. The serial component in PsychoPy Builder mode automatically converts start and stop values to bytes using bytes(), so if you want to set specific numerical values, you must use $chr() or $str.encode(''). Note that chr() takes numbers and str.encode('') takes a string.
@@ -93,10 +98,8 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 	      			- Parity: None.
 	      			- Timeout: Leave blank.   
 	- Move the vote_trig code component above the new serial component by left-clicking on the component and selecting "move up."
-	- Edit the vote_trig component:  For both triggers, replace the methods used to write data to the output port:
->.setData()
-with
->.write(bytes(chr()), 'utf8')
+	- Edit the vote_trig component:  For both triggers, replace the methods used to write data to the output port by changing setData() to .write(bytes(chr()), 'utf8').
+
 - Cop_vote routine:
 	- Edit the thumb_trigger code component:
  		- Delete all lines of code after line 17 (the last elif statement).
@@ -114,22 +117,24 @@ with
       			- Stop bits: 1.
       			- Parity: None.
       			- Timeout: Leave blank.
-** Result trigger **
+          	  
+**Result trigger**
 - In the Result routine, disable or delete the result parallel component (named result_trigger).
 - Create a new serial result trigger component:
-	- Adjust basic serial port settings: 	
-			- Name: Name the component result_trigger_s1 for easy recognition.
-			- Start: Set to $text_24.status == STARTED.
-			- Duration: 0.01 s.
-			- Port: Add the name of your serial port (e.g., COM4).
-			- Start data: $chr(50).
-			- End data: $chr(0).
+	- Adjust basic serial port settings:
+ 		- Name: Name the component result_trigger_s1 for easy recognition.
+   		- Start: Set to $text_24.status == STARTED.
+     		- Duration: 0.01 s.
+       		- Port: Add the name of your serial port (e.g., COM4).
+         	- Start data: $chr(50).
+          	- End data: $chr(0).
 	- Adjust serial port hardware settings:
-			- Baud rate: 9600.
-			- Data bits: 8.
-			- Stop bits: 1.
-			- Parity: None.
-			- Timeout: Leave blank.
+ 		- Baud rate: 9600.
+   		- Data bits: 8.
+     		- Stop bits: 1.
+       		- Parity: None.
+         	- Timeout: Leave blank.
+          
 ## 5. Making Changes to the Task
 
 -  Watch tutorials on how to use PsychoPy if needed: https://youtube.com/playlist?list=PL6PJquR5BWXllUt585cRJWcRTly55iXTm
@@ -141,11 +146,10 @@ with
  - However, if you are okay with running the task using a simple Python script, you can make changes to the task using the PsychoPy Coder. I would NOT recommend this as it will create a discrepancy between the .PSYEXP file and the .PY file.
 
 - A brief overview:
-- Note:
 	- The .PSYEXP file is the file that contains the Builder version of the task. To run the task, you should open this file and click on "Run."
 	- It is useful to also make sure to save the .PY file because these files will be able to be run using any version of PsychoPy3. Save these files to prevent losing the task due to corrupted .PSYEXP files. 
 	- The second most important file is the Trials.xlsx file which contains all of the co-players' information. 
--  If you open the file, you will see a number of columns. All of these columns can be altered, but **I would pay careful attention to altering cop_vote, which is a column that contains co-players' voting patterns, as well as co-player types.** 
+	-  If you open the file, you will see a number of columns. All of these columns can be altered, but **I would pay careful attention to altering cop_vote, which is a column that contains co-players' voting patterns, as well as co-player types.** 
 
 - **Changing co-players' pictures**:
 	- *Method 1*: 
