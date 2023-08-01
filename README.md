@@ -77,7 +77,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 	- Stop bits: Set to 1. Stop bits sent at the end of every character allow the receiving signal hardware to detect the end of a character and to resynchronize with the character stream. Electronic devices usually use 1 stop bit.
 - **Note**: Method used to write data to serial ports are different than those used for parallel ports. Use .write rather than.setData. 
 
-**How to Edit the Task to Send Triggers through the Serial Port**
+**Steps to Set Up Serial Port Triggers**
 
 - First, you must successfully set up a serial port within your task computer and connect it with your EEG data collection computer/data collection software.
 - After setting up the system successfully, you should determine the correct serial port address. In Windows, you can do this by opening the Device Manager (for Windows computers) > Ports (COM & LPT). Note the name of the port (should be COM1, COM2, COM3). You can also find this in Presentation by selecting Settings > Port > Add Output Port > Find out the name of the port by clicking on the drop-down menu.
