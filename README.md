@@ -221,11 +221,10 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 -  PATH: 5 rounds, 10 co-players, no profile review at the beginning. 
 
 ## 11. Duration of Components
-- Participant votes.
 - Participant waits for co-player to vote: Random duration ranging from 2.1 s to 3.0 s.
-- Fixation cross: 0.5s.
-- Feedback: 2s.
-- Fixation cross before next round of voting: 2s.
+- Fixation cross: 0.5 s.
+- Feedback: 2 s.
+- Fixation cross before next round of voting: 2 s.
   
 ## 12. Troubleshooting 
 - Installing 2023.x.x versions of PsychoPy currently throws a fatal error of missing environmenttools. Only use 2022.x.x. versions to avoid this problem.
