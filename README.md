@@ -13,7 +13,9 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 7. Trigger Code List
 8. Video of a Trial Run
 9. Summary of Changes from the Original Island Getaway Task
-11. Troubleshooting
+10. List of Current Versions
+11. Duration of Components
+12. Troubleshooting
 
 ## 1.  Downloading PsychoPy
 
@@ -211,8 +213,21 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 	- All co-players remain in the game, so there are 60 voting trials. Instead of being kicked out, the co-players are either among the ones who got the most votes or the least votes. Co-player profiles are randomly assigned and then assigned a specific order. Most/least liked co-player's are chosen using a fixed order (i.e., the co-player who appears second in the initial profile viewing will be most liked in round 1, etc.) so that no most liked co-players end up least liked in other rounds and vice-versa. 
 - Added PANAS questions to the post-task questionnaire and items about believability. 
 - Output file includes a .CSV file that can easily be used to analyze behavioral data.
-	
-## 10. Troubleshooting 
+
+## 10. List of Current Versions
+-  Basic MED Lab version: 5 rounds, 12 co-players, 60 rounds, includes profile review at the beginning.
+-  RDA project: Adjusted text instructions and profile information. Separate "You got invited" and invitees' photos screens. 5 rounds, 12 co-players, 60 rounds, including profile review at the beginning.
+-  BP: 5 rounds, 10 co-players,  includes profile review at the beginning (show co-players' first names only). Task includes a changed storyline, added Ollie graphics, and adjusted poll questions to be multiple choice and in picture format.
+-  PATH: 5 rounds, 10 co-players, no profile review at the beginning. 
+
+## 11. Duration of Components
+- Participant votes.
+- Participant waits for co-player to vote: Random duration ranging from 2.1 s to 3.0 s.
+- Fixation cross: 0.5s.
+- Feedback: 2s.
+- Fixation cross before next round of voting: 2s.
+  
+## 12. Troubleshooting 
 - Installing 2023.x.x versions of PsychoPy currently throws a fatal error of missing environmenttools. Only use 2022.x.x. versions to avoid this problem.
 - 8/1/2023: Seems like a Baud rate that is too high will cause missing triggers. Set to 9600 to fix this issue. 
 			
