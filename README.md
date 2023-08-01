@@ -4,15 +4,16 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 
 
 ## Table of Contents
-1. Downloading PsychoPy and Determining Parallel Port Address
-2. Making Changes to the Task
-3. Specifying the Correct Parallel Port Address in Builder 
-4. Output Interpretation
-5. Trigger Code List
-6. Video of a Trial Run 
-7. Summary of Changes from the Original Island Getaway Task
-8. Using a Serial Port to Send Triggers
-9. Troubleshooting
+1. Downloading PsychoPy
+2. Installing Parallel Port Drivers and Determining Parallel Port Address
+3. Specifying Parallel Port Address and Sending Triggers through the Parallel Port
+4. Editing the Task to Send Triggers through a Serial Port
+5. Making Changes to the Task
+6. Output Interpretation
+7. Trigger Code List
+8. Video of a Trial Run
+9. Summary of Changes from the Original Island Getaway Task
+11. Troubleshooting
 
 ## 1.  Downloading PsychoPy
 
@@ -38,43 +39,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 -   Open the parallel port tester, and choose the parallel port you have installed on the display computer (bottom right corner). This should display the correct address to be used in your Psychopy code. (e.g. mine is a PCIe with address: 0x3FF8). This is the same address that shows up in device manager, if you are more familiar with that method of finding the address.
 -   If you launch BrainVision Recorder on the acquisition computer, go to Amplifier > Digital Port Settings, you will have the parallel port installed on the display computer show up. By turning some pins from low to high (pins 2-9) you should see the pins change in the BrainVision recorder too. This confirms that the parallel port is indeed installed correctly and working ‘manually.’
 
-## 3. Making Changes to the Task
-
- -  Watch tutorials on how to use PsychoPy if needed: https://youtube.com/playlist?list=PL6PJquR5BWXllUt585cRJWcRTly55iXTm
- 
- - There are 2 ways to make changes in the task, but **I will only discuss changes made using the Builder** due to the following reasons:
-	 - If you want to run the experiment using .PSYEXP files (not .PY) files YOU MUST make all changes using PsychoPy Builder. 
-		 - This means a lot of clicking which can be time-consuming, but it is much easier to navigate. 
-		 - You can add code snippets as needed in Builder - the only challenge of making changes using the Builder is that you need to pay attention to the order of each components, as well as where to add different code snippets (i.e., before experiment, begin routine, etc.). 
-	 - However, if you are okay with running the task using a simple Python script, you can make changes to the task using the PsychoPy Coder. I would NOT recommend this as it will create a discrepancy between the .PSYEXP file and the .PY file.
-	
- - A brief overview:
-	- Note:
-		- The .PSYEXP file is the file that contains the Builder version of the task. To run the task, you should open this file and click on "Run."
-		- It is useful to also make sure to save the .PY file because these files will be able to be run using any version of PsychoPy3. Save these files to prevent losing the task due to corrupted .PSYEXP files. 
-		- The second most important file is the Trials.xlsx file which contains all of the co-players' information. 
- -  If you open the file, you will see a number of columns. All of these columns can be altered, but **I would pay careful attention to altering cop_vote, which is a column that contains co-players' voting patterns, as well as co-player types.** 
- 
-	- **Changing co-players' pictures**:
-		- *Method 1*: 
-			- Crop co-player pictures to the correct size (144 x 216 px).
-			- Overwrite the images that are in the "images" folder. In other words, you will retain the image names but change the image file.
-		-  *Method 2*:
-			- Crop co-player pictures to the correct size (144 x 216 px).
-			- Change the file paths in the cop_photo column to include the correct file names. 
-	
-	- **Changing co-players' names, ages, hometowns, interests, schools and poll answers**: 
-		- Simply change values in these columns with the new co-player profile information.
-	- **Changing co-players' votes**:
-		- The cop_vote column will have a list consisting of 0s (Dislike) and 1s (Like)  and the type of the co-player. 
-			- The type of the co-player simple denotes the number times a co-player will "like" the participant. There are 4 types with 3 co-players assigned to each. 
-				- Type 1: 3 peers - 4 reject votes, 1 accept across task.
-				- Type 2: 3 peers - 3 reject votes, 2 accept across task.
-				- Type 3: 3 peers - 2 reject votes, 3 accept across task.
-				- Type 4: 3 peers - 1 reject votes, 4 accept across task.
-		- Co-player votes are set up so that the participant gets 6 likes and 6 dislikes in each round. It is important to keep this ratio to be congruent with the Doors task and also to make the result of the game more ambiguous. 
-		- You can make edits to the order of the 0s and 1s, but I would always make sure to double-check the ratio of likes/dislikes after making any edits. 
-## 4. Specifying Parallel Port Address and Sending Triggers through the Parallel Port
+## 3. Specifying Parallel Port Address and Sending Triggers through the Parallel Port
 **REQUIRED if using parallel port only**
  - Open PsychoPy Builder and then open the .PSYEXP version of the task which trigger codes enabled (File > Open > your file directory).  
  - In Hardware settings (File > Preferences > Hardware), add the correct parallel port address of your task computer (PsychoPy will likely have a list of existing addresses; you can just add a comma and the correct parallel port address of your task computer). 
@@ -96,7 +61,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 		 - Within this routine, click on the component named result_trigger (will have a suffix denoting round number) > Hardware > Choose the correct parallel port address in the drop-down menu.
  - Once you complete all of these edits, run the task in its entirety to test it. 
 
-## 5. Sending Triggers through a Serial Port
+## 4. Editing the Task to Send Triggers through a Serial Port
 **Introduction to Serial Ports**
 - Helpful resource introducing serial ports: https://learn.sparkfun.com/tutorials/serial-communication/all
 - Serial ports are a bit more narrow than parallel ports and include 9 pins only. Their names are COM1, COM2, COM3, COM4 etc. Serial ports are now more commonly found on various devices while parallel ports are mostly deprecated. You cannot install a parallel port card into laptops or small computers. Brain Products now offer an add-in accessory named the TriggerBox, which provides a reliable virtual serial port via USB that can be directly addressed from your stimulus presentation software.
@@ -110,21 +75,98 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 **How to Edit the Task to Send Triggers through the Serial Port**
 - First, you must successfully set up a serial port within your task computer and connect it with your EEG data collection computer/data collection software.
 - After setting up the system successfully, you should determine the correct serial port address. In Windows, you can do this by opening the Device Manager (for Windows computers) > Ports (COM & LPT). Note the name of the port (should be COM1, COM2, COM3). You can also find this in Presentation by selecting Settings > Port > Add Output Port > Find out the name of the port by clicking on the drop-down menu.
-- For each round, make the following changes in each routine:
-  - Player_voting_style routine:
-  	- Disable the parallel port component (named ptp_trigger_1, ptp_trigger_2, etc.) by clicking on the component > Testing > click on "Disable Component." You can also delete these components altogether.
+** For each of the 5 rounds, make the following changes in each routine:**
+- Player_voting_style routine:
+	- Disable the parallel port component (named ptp_trigger_1, ptp_trigger_2, etc.) by clicking on the component > Testing > click on "Disable Component." You can also delete these components altogether.
 	- Setting up triggers to be sent when participant votes:
-		- Create a new serial port component (name it ptp_trigger_s1, ptp_trigger_s2, etc. for easy recognition) by selecting "Serial Beta" in the menu on the left labeled Components and choose the I/O tab. 
-    			- Start of serial component: Set the start of the component to be condition instead of time (the trigger is to be sent when the computer registers a correct click) type in $click_real_1 == STARTED (including the $).
-                        - Duration: Set the duration of the component to be 0.01s.
-                        - Start value: Set the start value to blank.
-                        - Stop value: Set the stop value to be $chr(0). The stop value is what the serial port will be reset to after a trigger code is done sending. The serial component in PsychoPy Builder mode automatically converts start and stop values to bytes using bytes(), so if you want to set specific numerical values, you must use $chr() or $str.encode(''). Note that chr() takes numbers and str.encode('') takes a string.
-  		        - Move the vote_trig code component above the new serial component by left-clicking on the component and selecting "move up."
-                        - Edit the vote_trig component:  For both triggers, replace the methods used to write data to the output port:
-    >.setData() 
-    with
-    > .write(bytes(chr()), 'utf8')
-    				
+	- Create a new serial port component by selecting "Serial Beta" in the menu on the left labeled Components and choose the I/O tab.
+ 		- Adjust basic serial port settings:
+   			- Name: Name the component ptp_trigger_s1, ptp_trigger_s2, etc. for easy recognition. 
+			- Start of serial component: Set the start of the component to be condition instead of time (the trigger is to be sent when the computer registers a correct click) type in $click_real_1 == STARTED (including the $).
+			- Duration: Set the duration of the component to be 0.01s.
+			- Start value: Set the start value to blank.
+			- Stop value: Set the stop value to be $chr(0). The stop value is what the serial port will be reset to after a trigger code is done sending. The serial component in PsychoPy Builder mode automatically converts start and stop values to bytes using bytes(), so if you want to set specific numerical values, you must use $chr() or $str.encode(''). Note that chr() takes numbers and str.encode('') takes a string.
+	  		- Adjust serial port hardware settings:
+	    			- Baud rate: 9600.
+	      			- Data bits: 8.
+	      			- Stop bits: 1.
+	      			- Parity: None.
+	      			- Timeout: Leave blank.   
+	- Move the vote_trig code component above the new serial component by left-clicking on the component and selecting "move up."
+	- Edit the vote_trig component:  For both triggers, replace the methods used to write data to the output port:
+>.setData()
+with
+>.write(bytes(chr()), 'utf8')
+- Cop_vote routine:
+	- Edit the thumb_trigger code component:
+ 		- Delete all lines of code after line 17 (the last elif statement).
+ 	- Create a new serial port component:
+  		- Adjust basic serial port settings: 	
+	  		- Name: Name the component coplayer_trigger_s1, coplayer_trigger_s2, etc. for easy recognition.
+	    		- Start: Set to 0. 
+	      		- Duration: 0.01 s.
+	        	- Port: Add the name of your serial port (e.g., COM4).
+	         	- Start data: $chr(cop_v_first).
+	          	- End data: $chr(0).
+          	- Adjust serial port hardware settings:
+    			- Baud rate: 9600.
+      			- Data bits: 8.
+      			- Stop bits: 1.
+      			- Parity: None.
+      			- Timeout: Leave blank.
+** Result trigger **
+- In the Result routine, disable or delete the result parallel component (named result_trigger).
+- Create a new serial result trigger component:
+	- Adjust basic serial port settings: 	
+			- Name: Name the component result_trigger_s1 for easy recognition.
+			- Start: Set to $text_24.status == STARTED.
+			- Duration: 0.01 s.
+			- Port: Add the name of your serial port (e.g., COM4).
+			- Start data: $chr(50).
+			- End data: $chr(0).
+	- Adjust serial port hardware settings:
+			- Baud rate: 9600.
+			- Data bits: 8.
+			- Stop bits: 1.
+			- Parity: None.
+			- Timeout: Leave blank.
+## 5. Making Changes to the Task
+
+-  Watch tutorials on how to use PsychoPy if needed: https://youtube.com/playlist?list=PL6PJquR5BWXllUt585cRJWcRTly55iXTm
+
+- There are 2 ways to make changes in the task, but **I will only discuss changes made using the Builder** due to the following reasons:
+ - If you want to run the experiment using .PSYEXP files (not .PY) files YOU MUST make all changes using PsychoPy Builder. 
+	 - This means a lot of clicking which can be time-consuming, but it is much easier to navigate. 
+	 - You can add code snippets as needed in Builder - the only challenge of making changes using the Builder is that you need to pay attention to the order of each components, as well as where to add different code snippets (i.e., before experiment, begin routine, etc.). 
+ - However, if you are okay with running the task using a simple Python script, you can make changes to the task using the PsychoPy Coder. I would NOT recommend this as it will create a discrepancy between the .PSYEXP file and the .PY file.
+
+- A brief overview:
+- Note:
+	- The .PSYEXP file is the file that contains the Builder version of the task. To run the task, you should open this file and click on "Run."
+	- It is useful to also make sure to save the .PY file because these files will be able to be run using any version of PsychoPy3. Save these files to prevent losing the task due to corrupted .PSYEXP files. 
+	- The second most important file is the Trials.xlsx file which contains all of the co-players' information. 
+-  If you open the file, you will see a number of columns. All of these columns can be altered, but **I would pay careful attention to altering cop_vote, which is a column that contains co-players' voting patterns, as well as co-player types.** 
+
+- **Changing co-players' pictures**:
+	- *Method 1*: 
+		- Crop co-player pictures to the correct size (144 x 216 px).
+		- Overwrite the images that are in the "images" folder. In other words, you will retain the image names but change the image file.
+	-  *Method 2*:
+		- Crop co-player pictures to the correct size (144 x 216 px).
+		- Change the file paths in the cop_photo column to include the correct file names. 
+
+- **Changing co-players' names, ages, hometowns, interests, schools and poll answers**: 
+	- Simply change values in these columns with the new co-player profile information.
+- **Changing co-players' votes**:
+	- The cop_vote column will have a list consisting of 0s (Dislike) and 1s (Like)  and the type of the co-player. 
+		- The type of the co-player simple denotes the number times a co-player will "like" the participant. There are 4 types with 3 co-players assigned to each. 
+			- Type 1: 3 peers - 4 reject votes, 1 accept across task.
+			- Type 2: 3 peers - 3 reject votes, 2 accept across task.
+			- Type 3: 3 peers - 2 reject votes, 3 accept across task.
+			- Type 4: 3 peers - 1 reject votes, 4 accept across task.
+	- Co-player votes are set up so that the participant gets 6 likes and 6 dislikes in each round. It is important to keep this ratio to be congruent with the Doors task and also to make the result of the game more ambiguous. 
+	- You can make edits to the order of the 0s and 1s, but I would always make sure to double-check the ratio of likes/dislikes after making any edits. 
+				
 ## 6. Output Interpretation
 
  - The task will write data into an excel (.csv) file, a PSYDAT file and also a log file.
@@ -143,7 +185,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
  - 46: Type 4 Co-player dislikes participant
  - 50: Participant is invited to party
    
- ## 7. Video of a Trial Run
+ ## 8. Video of a Trial Run
  - See an example run of the whole task here: https://tinyurl.com/medlabvirtualparty
    
  ## 9. Summary of Changes from the Original Island Getaway Task
@@ -162,6 +204,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 - Added PANAS questions to the post-task questionnaire and items about believability. 
 - Output file includes a .CSV file that can easily be used to analyze behavioral data.
 	
-## 9. Troubleshooting 
-- Installing 2023.x.x versions of PsychoPy currently throws a fatal error of missing environmenttools. Only use 2022.x.x. versions to avoid this problem. 
+## 10. Troubleshooting 
+- Installing 2023.x.x versions of PsychoPy currently throws a fatal error of missing environmenttools. Only use 2022.x.x. versions to avoid this problem.
+- 8/1/2023: Seems like a Baud rate that is too high will cause missing triggers. Set to 9600 to fix this issue. 
 			
