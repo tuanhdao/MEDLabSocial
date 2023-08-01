@@ -196,6 +196,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
  - See an example run of the whole task here: https://tinyurl.com/medlabvirtualparty
    
  ## 9. Summary of Changes from the Original Island Getaway Task
+ - Compatible with both serial and parallel ports (see above for edits).
  - More accurate trigger timing (trigger timings tested using BrainVision photosensor). 
  - Removed binary gender. 
  - Updated storyline: The task simulates a social media platform with clear "likes" and "dislikes" to assess reactions to social acceptance/rejection.
