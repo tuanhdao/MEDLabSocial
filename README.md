@@ -215,10 +215,10 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 - Output file includes a .CSV file that can easily be used to analyze behavioral data.
 
 ## 10. List of Current Versions
--  Basic MED Lab version: 5 rounds, 12 co-players, 60 rounds, includes profile review at the beginning.
--  RDA project: Adjusted text instructions and profile information. Separate "You got invited" and invitees' photos screens. 5 rounds, 12 co-players, 60 rounds, including profile review at the beginning.
--  BP: 5 rounds, 10 co-players,  includes profile review at the beginning (show co-players' first names only). Task includes a changed storyline, added Ollie graphics, and adjusted poll questions to be multiple choice and in picture format.
--  PATH: 5 rounds, 10 co-players, no profile review at the beginning. 
+-  Basic MED Lab version: 5 rounds, 12 co-players, 60 rounds, includes profile review at the beginning, parallel.
+-  RDA: Adjusted text instructions and profile information, parallel. Separate "You got invited" and invitees' photos screens. 5 rounds, 12 co-players, 60 rounds, including profile review at the beginning.
+-  BP: 5 rounds, 10 co-players, includes profile review at the beginning (show co-players' first names only), parallel. Task includes a changed storyline, added Ollie graphics, and adjusted poll questions to be multiple choice and in picture format.
+-  PATH: 5 rounds, 10 co-players, no profile review at the beginning, serial. 
 
 ## 11. Duration of Components
 - Participant waits for co-player to vote: Random duration ranging from 2.1 s to 3.0 s.
