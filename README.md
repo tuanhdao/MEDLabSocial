@@ -103,7 +103,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
          			- Parity: None.
            			- Timeout: Leave blank.   
 		- Move the vote_trig code component above the new serial component by left-clicking on the component and selecting "move up."
-		- Edit the vote_trig component:  For both triggers, replace the methods used to write data to the output port by changing ".setData(1)" to ".write(bytes(chr(1)), 'utf8')".
+		- Edit the vote_trig component:  For both triggers, replace the methods used to write data to the output port by changing "win.callOnFlip(ptp_trigger_1.setData, 1)" to "win.callOnFlip(ptp_trigger_s1.write, bytes(chr(1), 'utf8'))".
 
 - Cop_vote routine:
 	- Edit the thumb_trigger code component:
