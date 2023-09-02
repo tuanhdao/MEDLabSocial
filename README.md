@@ -107,7 +107,7 @@ This repository houses the VP task, a social interaction task by Dr. Autumn Kuja
 
 - Cop_vote routine:
 	- Edit the thumb_trigger code component:
- 		- Delete all lines of code after line 17 (the last elif statement).
+ 		- Delete all lines of code after line 17 (the last elif statement) in the begin routine tab.
  	- Create a new serial port component to be sent for co-player feedback:
   		- Adjust basic serial port settings: 	
 	  		- Name: Name the component coplayer_trigger_s1, coplayer_trigger_s2, etc. for easy recognition.
